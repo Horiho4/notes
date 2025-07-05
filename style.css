@@ -1,0 +1,434 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right, #add8e6, #87cefa); /* Light blue gradient */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Add some padding around the main container */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Increased max-width to accommodate sidebar */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden; /* Clear floats */
+}
+
+.sidebar {
+    width: 250px; /* Fixed width for the sidebar */
+    padding: 2rem;
+    background-color: #f0f8ff; /* Lighter background for sidebar */
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar input {
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+}
+
+.sidebar button {
+    padding: 0.75rem 1rem;
+    background-color: #007bff; /* Blue for category buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+}
+
+#categoryList {
+    flex-grow: 1; /* Allows category list to take available space */
+    overflow-y: auto; /* Enable scrolling for categories */
+}
+
+.category-item {
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #555;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-item:hover {
+    background-color: #e2e6ea;
+    color: #333;
+}
+
+.category-item.active {
+    background-color: #d1ecf1; /* Highlight active category */
+    color: #007bff;
+    font-weight: bold;
+}
+
+.category-item button {
+    background-color: #dc3545; /* Red for delete category button */
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    margin-left: 10px;
+    margin-bottom: 0; /* Override default button margin */
+}
+
+.category-item button:hover {
+    background-color: #c82333;
+}
+
+/* New: Archive Link Section */
+.archive-link-section {
+    margin-top: 1.5rem; /* Space above the archive link */
+    margin-bottom: 1.5rem; /* Space below the archive link */
+    padding-top: 1rem;
+    border-top: 1px solid #eee; /* Separator line */
+}
+
+.archive-link {
+    display: block; /* Make the link fill the available width */
+    text-align: center;
+    padding: 0.75rem 1rem;
+    background-color: #6c757d; /* Grey for archive button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.archive-link:hover {
+    background-color: #5a6268;
+}
+
+/* Social Links - now inside sidebar */
+.social-links {
+    margin-top: 2rem; /* Add some space above social links */
+    padding-top: 1.5rem; /* Padding inside the social links block */
+    border-top: 1px solid #eee; /* Separator line */
+    text-align: left; /* Align text within social links to the left */
+}
+
+.social-links h2 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.social-links ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.social-links li {
+    margin-bottom: 8px; /* Slightly less space than default for list items */
+}
+
+.social-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Blue link color */
+    font-weight: bold;
+    transition: color 0.2s ease;
+    display: block; /* Make the whole link clickable area */
+    padding: 5px 0; /* Add padding to links for easier clicking */
+}
+
+.social-links a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+
+.notes-container {
+    flex-grow: 1; /* Allows notes container to take remaining space */
+    padding: 2rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Specific styles for archive page */
+.archive-page .notes-container {
+    text-align: left; /* Align text to left on archive page */
+}
+
+#currentCategoryTitle {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: #28a745; /* Green for add note button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#notesList, #archivedNotesList { /* Apply to both lists */
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.note-item {
+    background: #f8f9fa; /* Light grey for note items */
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    word-wrap: break-word; /* Ensure long words wrap */
+    position: relative; /* For positioning pinned icon */
+}
+
+.note-content {
+    flex-grow: 1;
+    margin-right: 10px;
+    color: #555;
+    white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+}
+
+.note-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+    display: block;
+}
+
+.note-actions {
+    display: flex;
+    gap: 5px; /* Space between action buttons */
+    align-items: center;
+}
+
+.note-item .action-btn { /* General style for action buttons */
+    background-color: #6c757d; /* Grey for general actions */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+.note-item .action-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Specific styles for archive/unarchive buttons */
+.note-item .archive-btn,
+.note-item .unarchive-btn {
+    background-color: #ffc107; /* Yellow for archive/unarchive */
+    color: #333;
+}
+
+.note-item .archive-btn:hover,
+.note-item .unarchive-btn:hover {
+    background-color: #e0a800;
+}
+
+
+.note-item .delete-btn { /* Specific style for delete button */
+    background-color: #dc3545;
+}
+
+.note-item .delete-btn:hover {
+    background-color: #c82333;
+}
+
+.note-item .favorite-btn.active {
+    background-color: #ffc107; /* Yellow for active favorite */
+    color: #333;
+}
+
+.note-item .favorite-btn.active:hover {
+    background-color: #e0a800;
+}
+
+.note-item .pin-btn.active {
+    background-color: #17a2b8; /* Teal for active pin */
+}
+
+.note-item .pin-btn.active:hover {
+    background-color: #138496;
+}
+
+.note-item.pinned {
+    border-left: 5px solid #17a2b8; /* Visual cue for pinned notes */
+    order: -1; /* Pinned notes appear at the top */
+}
+
+.note-item.favorite {
+    background-color: #fff9e6; /* Lighter yellow background for favorite notes */
+}
+
+/* Calendar Styles */
+.calendar-section {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.calendar-section h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-header button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0; /* Override default button margin */
+}
+
+.calendar-header button:hover {
+    background-color: #0056b3;
+}
+
+#currentMonthYear {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.calendar-grid-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.calendar-grid-header span {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.calendar-grid-header .weekend {
+    color: #dc3545; /* Red for weekend headers */
+}
+
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    padding: 0.7rem 0.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 40px; /* Ensure consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.calendar-day.empty {
+    background-color: #f0f0f0;
+    visibility: hidden; /* Hide empty cells */
+}
+
+.calendar-day.current-day {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-color: #007bff;
+}
+
+.calendar-day.weekend-day {
+    color: #dc3545; /* Red for weekend days */
+}
+
+/* Music Player Styles */
+.music-player-section {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.music-player-section h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.music-player-section audio {
+    width: 100%; /* Make audio player responsive */
+    max-width: 400px; /* Limit max width */
+    margin-bottom: 1rem;
+}
+
+.music-info {
+    font-size: 0.9em;
+    color: #666;
+}
+

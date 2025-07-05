@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="sidebar">
+            <h2>Категории</h2>
+            <input type="text" id="categoryInput" placeholder="Название новой категории">
+            <button id="addCategoryBtn">Добавить категорию</button>
+            <div id="categoryList"></div>
+
+            <div class="archive-link-section">
+                <a href="archive.html" class="archive-link">Архив заметок</a>
+            </div>
+
+            <div class="social-links">
+                <h2>Наши соцсети</h2>
+                <ul>
+                    <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+                    <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.tumblr.com/" target="_blank">Tumblr</a></li>
+                    <li><a href="https://www.spotify.com/" target="_blank">Spotify</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes-container">
+            <h1 id="currentCategoryTitle">Все заметки</h1>
+            <textarea id="noteInput" placeholder="Напишите вашу заметку здесь..."></textarea>
+            <button id="addNoteBtn">Добавить заметку</button>
+            <div id="notesList"></div>
+
+            <div class="calendar-section">
+                <h2>Календарь</h2>
+                <div class="calendar-header">
+                    <button id="prevMonthBtn">&lt;</button>
+                    <span id="currentMonthYear"></span>
+                    <button id="nextMonthBtn">&gt;</button>
+                </div>
+                <div class="calendar-grid-header">
+                    <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span class="weekend">Сб</span><span class="weekend">Вс</span>
+                </div>
+                <div id="calendarGrid" class="calendar-grid">
+                    </div>
+            </div>
+
+            <div class="music-player-section">
+                <h2>Lofi Музыка</h2>
+                <audio controls loop>
+                    <source src="ghostrifter-back-home.mp3" type="audio/mpeg">
+                    <source src="barradeen-i-cant-take-my-eyes-out-of-you.mp3" type="audio/mpeg">
+                </audio>
+                <p class="music-info">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

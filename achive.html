@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архив заметок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container archive-page">
+        <div class="sidebar">
+            <h2>Навигация</h2>
+            <div class="category-item"><a href="index.html">Вернуться к заметкам</a></div>
+            <div class="social-links">
+                <h2>Наши соцсети</h2>
+                <ul>
+                    <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+                    <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.tumblr.com/" target="_blank">Tumblr</a></li>
+                    <li><a href="https://www.spotify.com/" target="_blank">Spotify</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes-container">
+            <h1>Архивные заметки</h1>
+            <textarea id="noteInput" placeholder="Напишите новую архивную заметку здесь..."></textarea>
+            <button id="addNoteBtn">Добавить архивную заметку</button>
+            <div id="archivedNotesList">
+                </div>
+            <p id="noArchivedNotesMessage" style="display: none; text-align: center; margin-top: 20px; color: #666;">В архиве пока нет заметок.</p>
+        </div>
+    </div>
+    div class="weather-container">
+    <h1>Погода в вашем городе</h1>
+    <input type="text" id="cityInput" placeholder="Введите город" />
+    <button onclick="getWeather()">Узнать погоду</button>
+    <div id="weatherResult"></div>
+    <div id="forecastResult"></div> </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
